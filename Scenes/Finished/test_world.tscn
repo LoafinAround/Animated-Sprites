@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4gotf633o7n"]
+
+[ext_resource type="PackedScene" uid="uid://cd6gi3oryk8hd" path="res://Scenes/Finished/finished_player.tscn" id="1_l1b5c"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_aj3jn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ebue"]
+size = Vector2(1, 1)
+
+[node name="testWorld" type="Node2D"]
+
+[node name="finishedPlayer" parent="." instance=ExtResource("1_l1b5c")]
+position = Vector2(36, 344)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(585, 536)
+scale = Vector2(1193.5, 323.5)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+scale = Vector2(1, 1)
+mesh = SubResource("BoxMesh_aj3jn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_5ebue")

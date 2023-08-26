@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxhd3qgyxnn4t"]
+
+[ext_resource type="PackedScene" uid="uid://n6k3pywkiaux" path="res://Scenes/player.tscn" id="1_g5jfw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_aj3jn"]
+
+[sub_resource type="Gradient" id="Gradient_005d7"]
+colors = PackedColorArray(0.394445, 0.194443, 0.0326023, 1, 0.394531, 0.195313, 0.03125, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2kxbe"]
+gradient = SubResource("Gradient_005d7")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ebue"]
+size = Vector2(1, 1)
+
+[node name="World" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(585, 536)
+scale = Vector2(1193.5, 323.5)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+mesh = SubResource("BoxMesh_aj3jn")
+texture = SubResource("GradientTexture1D_2kxbe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_5ebue")
+
+[node name="Player" parent="." instance=ExtResource("1_g5jfw")]
+position = Vector2(139, 302)
